@@ -1,0 +1,271 @@
+@import "./normalize.scss";
+html,
+body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    * {
+        box-sizing: border-box;
+    }
+}
+
+:root {
+    --bg: url(../assets/Rectangle1.png);
+    --text-color: #f7f7f7;
+    --parallax: url(../assets/parallax1.png);
+    --foot-bg: #101010;
+    --nighttime: 'daytime';
+}
+
+.light {
+    --bg: url(../assets/Rectangle2.png);
+    --text-color: #333333;
+    --parallax: url(../assets/parallax2.png);
+    --foot-bg: #ebebeb;
+    --nighttime: 'nighttime';
+}
+
+.ladning:not(.light) {
+    .light {
+        display: none;
+    }
+}
+
+.ladning.light {
+    .dark {
+        display: none;
+    }
+}
+
+.ladning {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .ladning__video-col {
+        position: relative;
+        flex: 0 0 50%;
+        background-image: var(--bg);
+        min-height: 100%;
+        text-align: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        @media screen and(max-width: 1024px) {
+            text-align: center;
+            flex: 0 0 100%;
+            max-width: unset;
+            min-height: unset;
+        }
+    }
+    .ladning__content-col {
+        position: relative;
+        flex: 1;
+        background-image: var(--bg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        text-align: center;
+        @media screen and(max-width: 1024px) {
+            flex: 0 0 100%;
+            min-width: unset;
+        }
+    }
+}
+
+.video {
+    position: sticky;
+    top: 0;
+    vertical-align: top;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    height: 100%;
+    max-height: 100vh;
+    @media screen and(max-width: 1024px) {
+        position: relative;
+        object-fit: contain;
+        height: auto;
+        max-height: unset;
+    }
+}
+
+.content {
+    background-image: url(../assets/bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    >.logo {
+        display: inline-block;
+        text-decoration: none;
+        img {
+            width: 190px;
+            height: auto;
+            @media screen and(max-width: 768px) {
+                width: 160px;
+            }
+        }
+    }
+}
+
+.visit-note {
+    color: var(--text-color);
+    display: flex;
+    justify-content: flex-end;
+    >p {
+        font-weight: 700;
+        font-size: 16px;
+    }
+}
+
+.mission {
+    justify-content: center;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -8px;
+    .coming-soon {
+        display: inline-block;
+        color: var(--text-color);
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+        text-align: left;
+        padding: 0 8px;
+        @media screen and(max-width: 768px) {
+            font-size: 3rem;
+        }
+        &.coming-soon--coming {
+            flex: 0 0 100%;
+            @media screen and(max-width: 768px) {
+                flex: unset;
+            }
+        }
+        @media screen and(max-width: 768px) {
+            position: relative;
+            text-align: center;
+            max-width: unset;
+        }
+    }
+    >p {
+        padding: 16px 8px;
+        color: var(--text-color);
+        font-size: 16px;
+        line-height: 24px;
+        text-align: left;
+        flex: 1;
+        font-weight: 700;
+        margin: 0;
+        >.pink {
+            color: #fe70a8;
+        }
+        >.blue {
+            color: #38e7fa;
+        }
+        >.purple {
+            color: #c776dc;
+        }
+        @media screen and(max-width: 768px) {
+            flex: 0 0 100%;
+        }
+    }
+}
+
+p.subscribe {
+    color: var(--text-color);
+    margin-bottom: 8px;
+    margin-top: 8px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.space {
+    flex: 1;
+}
+
+.parallax {
+    margin-top: 32px;
+    background-image: var(--parallax);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: 100%;
+    padding-bottom: 60%;
+}
+
+.container {
+    max-width: 768px;
+    width: 100%;
+    margin: auto;
+    @media screen and(max-width: 2000px) {
+        padding: 0 10%;
+    }
+    @media screen and(max-width: 450px) {
+        padding: 0 16px;
+    }
+}
+
+.footer {
+    margin-top: 16px;
+    background-color: var(--foot-bg);
+    height: 84px;
+    padding: 16px 0;
+    .footer_wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer__logo {
+        display: inline-block;
+        text-decoration: none;
+        img {
+            width: 90px;
+            height: auto;
+        }
+    }
+    .footer__social {
+        .footer__social__title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+        .footer__social__icons {
+            display: flex;
+            justify-content: center;
+            margin: 0 -16px;
+            .footer__social__icons__item {
+                color: var(--text-color);
+                padding: 0 16px;
+                &.footer__social__icons__item--instagram:hover {
+                    color: #cd486b;
+                }
+                &.footer__social__icons__item--facebook:hover {
+                    color: #4267B2;
+                    cursor: not-allowed;
+                }
+                &.footer__social__icons__item--linkedin:hover {
+                    color: #0077b5;
+                    cursor: not-allowed;
+                }
+                svg {
+                    height: 18px;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+.bottom-footer {
+    display: flex;
+    img {
+        height: 5px;
+        width: 100%;
+    }
+}
